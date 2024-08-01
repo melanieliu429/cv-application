@@ -1,22 +1,8 @@
 import React, { useState } from 'react'
 import "./components.css"
 
-export default function Projects() {
-    const [projects, setProjects] = useState({
-        title: 'Minecraft',
-        subtitle: 'Mod Creator',
-        startDate: 'May 27, 2016',
-        endDate: 'September 11, 2016',
-        description: 'I developed cool lucky block mods for Youtubers to use!'
-    });
-
-    function handleInputChange(e) {
-        const { name, value } = e.target;
-        setProjects(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    }
+export default function General({ projects, handleInputChange }) {
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,22 +27,12 @@ export default function Projects() {
             <input onChange={handleInputChange} type="date" name="endDate" value={projects.endDate} />
             <label>Description</label>
             <textarea onChange={handleInputChange} name="description" value={projects.description}></textarea>
-            <button type="submit">Submit</button>
+            <div className="buttons">
+              <button className="add" type="submit">Add</button>
+              <button className="delete" type="submit">Delete</button>
+          </div>
         </form>
-        <ProjectsBuilder {...projects} />
     </div>
     
   );
 }
-
-  export const ProjectsBuilder = ({ title, subtitle, startDate, endDate, description }) => {
-    return (
-      <div>
-        <h1>{ title }</h1>
-        <h1>{ subtitle }</h1>
-        <h1>{ endDate }</h1>
-        <h1>{ startDate }</h1>
-        <h1>{ description }</h1>
-      </div>
-    );
-  }

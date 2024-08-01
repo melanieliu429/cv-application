@@ -1,24 +1,8 @@
 import React, { useState } from 'react'
-import "./components.css"
-
-export default function Skills() {
-    const [skills, setSkills] = useState({
-        name: 'React JS',
-        proficiency: 'Beginner',
-        category: 'Software',
-        yearsOfExperience: '2',
-        description: 'Build dynamic user interfaces.'
-    });
+import "./components.css";
+export default function Skills({ skills, handleInputChange }) {
     
-    function handleInputChange(e) {
-        const { name, value } = e.target;
-        setSkills(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    }
-
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Current state:', skills); // Debugging line to see the current state
         if (skills && skills.name) {
@@ -41,23 +25,15 @@ export default function Skills() {
             <input onChange={handleInputChange} type="number" name="yearsOfExperience" value={skills.yearsOfExperience} />
             <label>Description</label>
             <textarea onChange={handleInputChange} name="description" value={skills.description}></textarea>
-            <button type="submit">Submit</button>
+            <div className="buttons">
+              <button className="add" type="submit">Add</button>
+              <button className="delete" type="submit">Delete</button>
+          </div>
         </form>
-        <SkillsBuilder {...skills} />
     </div>
   );
 }
 
-export const SkillsBuilder = ({ name, proficiency, category, yearsOfExperience, description }) => {
-    return (
-      <div className="general">
-        <p>{ name }</p>
-        <p>{ proficiency }</p>
-        <p>{ category }</p>
-        <p>{ yearsOfExperience }</p>
-        <p>{ description }</p>
-      </div>
-    );
-  }
+
 
 

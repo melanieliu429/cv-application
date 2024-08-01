@@ -1,5 +1,64 @@
+.container {
+    display: flex;
+    gap: 1rem;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-around;
+}
+
+.icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+img {
+    width: 1.5rem;
+}
+
+.skill {
+    display: flex;
+    gap: 8px;
+}
+
+.input {
+    padding: 1rem;
+    background-color: lightgray;
+}
+
+.resume {
+    padding: 1rem;
+    border: 1px solid black;
+}
+
 form {
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 30vw;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add {
+    margin-top: 1rem;
+    border: none;
+    background-color: lightgreen;
+    height: 2rem;
+    width: 4rem;
+}
+
+.delete {
+    margin-top: 1rem;
+    border: none;
+    background-color: red;
+    height: 2rem;
+    width: 4rem;
+}
+
+button:hover {
+    opacity: 0.8;
 }
