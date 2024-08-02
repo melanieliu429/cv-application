@@ -14,7 +14,6 @@ export default function Experience({ experience, handleInputChange }) {
 
   return (
       <form>
-          <h2>Experience</h2>
           <label>Title</label>
           <input onChange={handleInputChange} type="text" name="title" value={experience.title} />
           <label>Company</label>
@@ -25,10 +24,6 @@ export default function Experience({ experience, handleInputChange }) {
           <input onChange={handleInputChange} type="date" name="endDate" value={experience.endDate} />
           <label>Description</label>
           <textarea onChange={handleInputChange} name="description" value={experience.description}></textarea>
-          <div className="buttons">
-            <button className="add" type="submit">Add</button>
-            <button className="delete" type="submit">Delete</button>
-          </div>
       </form>
   );
 }
