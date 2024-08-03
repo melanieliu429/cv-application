@@ -32,14 +32,23 @@ img {
     border: 1px solid black;
 }
 
+.general {
+    margin-bottom: 2rem;
+}
+
 .projects > div, .experience > div, .skills > div {
     margin-bottom: 2rem;
+}
+
+.formElements {
+    height: 100vh;
+    overflow-y: auto;
+    width: 60vw;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 30vw;
 }
 
 .header {
@@ -48,20 +57,27 @@ form {
     align-items: center;
 }
 
+
 .add {
-    border: none;
-    background-color: lightgreen;
+    background-color: rgb(59, 141, 59);
     height: 2rem;
-    width: 8rem;
+    width: 2rem;
+    font-size: large;
+    
 }
 
 .delete {
+    background-color: rgb(192, 11, 11);
+    height: 2rem;
+}
+
+button {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: none;
-    background-color: red;
-    height: 2rem;
-    width: 4rem;
+    color: white;
+    font-weight: bolder;
+    border-radius: 0.25cm;
 }
 
 button:hover {

@@ -1,84 +1,3 @@
-// import React, { useState } from 'react';
-// import General from './components/General';
-// import Projects from './components/Projects';
-// import Experience from './components/Experience';
-// import Skills from './components/Skills';
-// import GeneralBuilder from './components/GeneralBuilder';
-// import ProjectsBuilder from './components/ProjectsBuilder';
-// import ExperienceBuilder from './components/ExperienceBuilder';
-// import SkillsBuilder from './components/SkillsBuilder';
-// import './components/components.css';
-
-// function App() {
-//     project = [];
-
-//     const [general, setGeneral] = useState({
-//         name: 'Melanie Liu',
-//         email: 'melanieliu@berkeley.edu',
-//         phone: '4158166906',
-//         location: 'Castro Valley, CA'
-//     });
-
-//     const [projects, setProjects] = useState({
-//         title: 'Minecraft',
-//         subtitle: 'Mod Creator',
-//         startDate: '2016-05-27',
-//         endDate: '2016-09-11',
-//         description: 'I developed cool lucky block mods for Youtubers to use!'
-//     });
-
-//     const [experience, setExperience] = useState({
-//         title: 'Software Engineer',
-//         company: 'Mojang',
-//         startDate: '2011-04-22',
-//         endDate: '2015-08-14',
-//         description: 'Design, architect, develop, test, and deploy software solutions that meet customer requirements. Work in teams to produce high-quality software products. Create software architectures, designs, and specifications.'
-//     });
-
-//     const [skills, setSkills] = useState({
-//         name: 'React JS',
-//         category: 'Javascript Library',
-//         proficiency: 'Beginner',
-//         yearsOfExperience: '2',
-//         description: 'Library used to Build FrontEnd Applications with Ease. It lets you build user interfaces out of individual pieces called components. Create your own React components like Thumbnail, LikeButton, and Video. Then combine them into entire screens, pages, and apps.'
-//     });
-
-//     function handleInputChange(e, setState) {
-//         const { name, value } = e.target;
-//         setState(prevState => ({
-//             ...prevState,
-//             [name]: value
-//         }));
-//     }
-
-//     function handleClick() {
-//         projects.append[project];
-//         return <Projects projects={projects} handleInputChange={(e) => handleInputChange(e, setProjects)} />
-//     }
-
-//     return (
-//         <div className="container">
-//             <div className="input">
-//                 <General general={general} handleInputChange={(e) => handleInputChange(e, setGeneral)} />
-//                 <Projects projects={projects} handleInputChange={(e) => handleInputChange(e, setProjects)} />
-//                 <div className="buttons">
-//                     <button onClick={ handleClick } className="add" type="submit">Add</button>
-//                     <button className="delete" type="submit">Delete</button>
-//                 </div>
-//                 <Experience experience={experience} handleInputChange={(e) => handleInputChange(e, setExperience)} />
-//                 <Skills skills={skills} handleInputChange={(e) => handleInputChange(e, setSkills)} />
-//             </div>
-//             <div className="resume">
-//                 <GeneralBuilder {...general} />
-//                 <ProjectsBuilder {...projects} />
-//                 <ExperienceBuilder {...experience} />
-//                 <SkillsBuilder {...skills} />
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default App;
 import React, { useState } from 'react';
 import General from './components/General';
 import Projects from './components/Projects';
@@ -88,7 +7,7 @@ import GeneralBuilder from './components/GeneralBuilder';
 import ProjectsBuilder from './components/ProjectsBuilder';
 import ExperienceBuilder from './components/ExperienceBuilder';
 import SkillsBuilder from './components/SkillsBuilder';
-import './components/components.css';
+import './style.css';
 
 function App() {
     const [general, setGeneral] = useState({
@@ -137,8 +56,11 @@ function App() {
     }
 
     function handleProjectChange(index, e) {
+        //extracts the name and value properties from the event that triggered the function call
         const { name, value } = e.target;
+        //creates shallow copy of projects array
         const newProjects = [...projects];
+        //index and name are updated to whatever teh user inputs
         newProjects[index][name] = value;
         setProjects(newProjects);
     }
@@ -204,15 +126,16 @@ function App() {
 
     return (
         <div className="container">
-            <div className="input">
-                <General general={general} handleInputChange={(e) => handleInputChange(e, setGeneral)} />
-                <div className="header">
+            <div className="formElements">
+                <div className="input">
+                    <General general={general} handleInputChange={(e) => handleInputChange(e, setGeneral)} />
+                    <div className="header">
                     <h2>Projects</h2>
                     <div className="buttons">
-                        <button onClick={handleAddProject} className="add" type="button">Add Project</button>
+                        <button onClick={handleAddProject} className="add" type="button">+</button>
                     </div>
                 </div>
-                
+                    
                 {projects.map((project, index) => (
                     <div key={index} className="project-container">
                         <Projects
@@ -228,11 +151,11 @@ function App() {
                         </button>
                     </div>
                 ))}
-                
+                    
                 <div className="header">
                     <h2>Experience</h2>
                     <div className="buttons">
-                    <button onClick={handleAddExperience} className="add" type="button">Add Experience</button>
+                        <button onClick={handleAddExperience} className="add" type="button">+</button>
                     </div>
                 </div>
                 {experience.map((exp, index) => (
@@ -250,12 +173,12 @@ function App() {
                         </button>
                     </div>
                 ))}
-                
+                    
                 <div className="header">
                     <h2>Skills</h2>
                     <div className="buttons">
-                        <button onClick={handleAddSkills} className="add" type="button">Add Skills</button>
-                </div>
+                        <button onClick={handleAddSkills} className="add" type="button">+</button>
+                    </div>
                 </div>
                 {skills.map((skill, index) => (
                     <div key={index} className="skills-container">
@@ -272,8 +195,10 @@ function App() {
                         </button>
                     </div>
                 ))}
-                
+                    
             </div>
+        </div>
+            
             <div className="resume">
                 <GeneralBuilder {...general} />
                 <h2>PROJECTS</h2>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './components.css';
 
 const SkillsBuilder = ({ name, category, proficiency, yearsOfExperience, description }) => {
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./components.css";
+
 export default function Skills({ skills, handleInputChange }) {
     
   return (
@@ -14,7 +14,7 @@ export default function Skills({ skills, handleInputChange }) {
             <label>Years of Experience</label>
             <input onChange={handleInputChange} type="number" name="yearsOfExperience" value={skills.yearsOfExperience} />
             <label>Description</label>
-            <textarea onChange={handleInputChange} name="description" value={skills.description}></textarea>
+            <textarea rows="6" onChange={handleInputChange} name="description" value={skills.description}></textarea>
         </form>
     </div>
   );

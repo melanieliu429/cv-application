@@ -1,10 +1,13 @@
 import React from 'react';
-import './components.css';
 import emailIcon from '../img/email.svg';
 import phoneIcon from '../img/phone.svg';
 import locationIcon from '../img/location.svg';
 
 const GeneralBuilder = ({ name, email, phone, location }) => {
+    const formatPhoneNumber = (phone) => {
+        return `${phone.slice(0, 3)}-${phone.slice(3, 6)}-${phone.slice(6)}`;
+    };
+    
     return (
         <div className="general">
             <h2 style={{ textAlign: 'center', marginBottom: '0' }}>{name}</h2>
@@ -15,7 +18,7 @@ const GeneralBuilder = ({ name, email, phone, location }) => {
                 </div>
                 <div className="icons">
                     <img src={phoneIcon} alt="phone icon"/>
-                    <p>{phone}</p>
+                    <p>{formatPhoneNumber(phone)}</p>
                 </div>
                 <div className="icons">
                     <img src={locationIcon} alt="location icon" />

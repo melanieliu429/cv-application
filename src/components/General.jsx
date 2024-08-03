@@ -1,10 +1,9 @@
 import React from 'react';
-import './components.css';
 
 export default function General({ general, handleInputChange }) {
 
     return (
-        <div>
+        <div className="general">
             <form>
                 <h2>General</h2>
                 <label>Name</label>

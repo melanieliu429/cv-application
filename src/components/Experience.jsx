@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./components.css"
 
 export default function Experience({ experience, handleInputChange }) {
   const handleSubmit = (e) => {
@@ -23,7 +22,7 @@ export default function Experience({ experience, handleInputChange }) {
           <label>End Date</label>
           <input onChange={handleInputChange} type="date" name="endDate" value={experience.endDate} />
           <label>Description</label>
-          <textarea onChange={handleInputChange} name="description" value={experience.description}></textarea>
+          <textarea rows="6" onChange={handleInputChange} name="description" value={experience.description}></textarea>
       </form>
   );
 }
