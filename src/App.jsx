@@ -11,10 +11,10 @@ import './style.css';
 
 function App() {
     const [general, setGeneral] = useState({
-        name: 'Melanie Liu',
-        email: 'melanieliu@berkeley.edu',
-        phone: '4158166906',
-        location: 'Castro Valley, CA'
+        name: 'John Doe',
+        email: 'johndoe@gmail.com',
+        phone: '3897293940',
+        location: 'San Francisco, CA'
     });
 
     const [projects, setProjects] = useState([
